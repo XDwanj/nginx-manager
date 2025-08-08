@@ -41,13 +41,13 @@ func generateConfigContent(serviceConfig *config.ServiceConfig, defaultConfig *c
 	// 写入 server 块开始
 	sb.WriteString("server {\n")
 
+	// 写入 server_name
+	sb.WriteString(fmt.Sprintf("    server_name %s;\n\n", serviceConfig.ServerName))
+
 	// 写入默认的 server 配置项
 	for _, item := range defaultConfig.ServerItems {
 		sb.WriteString(fmt.Sprintf("    %s\n", item))
 	}
-
-	// 写入 server_name
-	sb.WriteString(fmt.Sprintf("    server_name %s;\n\n", serviceConfig.ServerName))
 
 	// 写入 locations
 	for i, location := range serviceConfig.Locations {
