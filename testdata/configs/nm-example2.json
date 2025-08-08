@@ -1,0 +1,9 @@
+{
+    "server_name": "example2.com",
+    "locations": [
+        {
+            "location": "/",
+            "proxy_pass": "http://localhost:9090"
+        }
+    ]
+}
